@@ -8,13 +8,44 @@
 import UIKit
 import AVFoundation
 
-class ViewController: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate {
-
+final class ViewController: UIViewController {
+        
+    var audio = Audio()
+    
+    
+    @IBOutlet weak var speedSlider: UISlider!
+    
+    
+    
+    @IBOutlet weak var pictchSlider: UISlider!
+    
+    
+    
+    @IBOutlet weak var echoSwitch: UISwitch!
+    
+    
+    @IBOutlet weak var reverbSwitch: UISwitch!
+    
+    
+    @IBOutlet weak var recordButton: UIButton!
+    
+    
+    @IBOutlet weak var playButton: UIButton!
+    
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+  
+        
     }
 
+    
+    
+    
+    
+    
 
 }
 
