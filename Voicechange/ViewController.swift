@@ -16,18 +16,18 @@ final class ViewController: UIViewController {
     @IBOutlet weak var speedSlider: UISlider! {
         didSet {
             speedSlider.minimumValue = 0.5
-            speedSlider.minimumValue = 1.5
+            speedSlider.maximumValue = 1.5
             speedSlider.setValue(1, animated: true)
-            speedSlider.tintColor = .blue
+            speedSlider.tintColor = .red
         }
     }
     
     @IBOutlet weak var pictchSlider: UISlider! {
         didSet {
             pictchSlider.minimumValue = -1000
-            pictchSlider.minimumValue = 1000
+            pictchSlider.maximumValue = 1000
             pictchSlider.setValue(0, animated: true)
-            pictchSlider.tintColor = .blue
+            pictchSlider.tintColor = .red
         }
     }
     
@@ -35,8 +35,8 @@ final class ViewController: UIViewController {
     @IBOutlet weak var echoSwitch: UISwitch! {
         didSet {
             echoSwitch.isOn = false
-            echoSwitch.onTintColor = .blue
-            echoSwitch.tintColor = .blue
+            echoSwitch.onTintColor = .red
+            echoSwitch.tintColor = .red
         }
     }
     
@@ -44,23 +44,35 @@ final class ViewController: UIViewController {
     @IBOutlet weak var reverbSwitch: UISwitch! {
         didSet {
             reverbSwitch.isOn = false
-            reverbSwitch.onTintColor = .blue
-            reverbSwitch.tintColor = .blue
+            reverbSwitch.onTintColor = .red
+            reverbSwitch.tintColor = .red
         }
     }
     
     
-    @IBOutlet weak var recordButton: UIButton!
+    @IBOutlet weak var recordButton: UIButton! {
+        didSet {
+            recordButton.layer.cornerRadius = playButton.layer.bounds.height / 2
+            recordButton.isEnabled = false
+        }
+    }
     
     
-    @IBOutlet weak var playButton: UIButton!
+    @IBOutlet weak var playButton: UIButton! {
+        didSet {
+            playButton.layer.cornerRadius = playButton.layer.bounds.height / 2
+            playButton.isEnabled = false
+            
+        }
+    }
     
     
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-  
+        
+        audio.setUpAudioRecorder()
         
     }
 
