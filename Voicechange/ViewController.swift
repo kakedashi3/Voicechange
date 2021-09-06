@@ -22,12 +22,12 @@ final class ViewController: UIViewController {
         }
     }
     
-    @IBOutlet weak var pictchSlider: UISlider! {
+    @IBOutlet weak var pitchSlider: UISlider! {
         didSet {
-            pictchSlider.minimumValue = -1000
-            pictchSlider.maximumValue = 1000
-            pictchSlider.setValue(0, animated: true)
-            pictchSlider.tintColor = .red
+            pitchSlider.minimumValue = -1000
+            pitchSlider.maximumValue = 1000
+            pitchSlider.setValue(0, animated: true)
+            pitchSlider.tintColor = .red
         }
     }
     
@@ -79,10 +79,21 @@ final class ViewController: UIViewController {
     
     
     @IBAction func record(_ sender: Any) {
+        if !audio.audioRecorder.isRecording {
+                    audio.audioRecorder.record()
+                } else {
+                    audio.audioRecorder.stop()
+                    playButton.isEnabled = true
+                }
     }
     
     
     @IBAction func play(_ sender: Any) {
+        audio.playSound(speed: speedSlider.value,
+                                pitch: pitchSlider.value,
+                                echo: echoSwitch.isOn,
+                                reverb: reverbSwitch.isOn
+                )
     }
     
 

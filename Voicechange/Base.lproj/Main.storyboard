@@ -56,7 +56,7 @@
                     </view>
                     <connections>
                         <outlet property="echoSwitch" destination="Avk-Jb-54Z" id="Lo0-cn-cTB"/>
-                        <outlet property="pictchSlider" destination="nen-hf-eRG" id="jHn-2m-A21"/>
+                        <outlet property="pitchSlider" destination="nen-hf-eRG" id="jHn-2m-A21"/>
                         <outlet property="playButton" destination="R4s-Kb-Jew" id="ucr-pI-bRQ"/>
                         <outlet property="recordButton" destination="USY-oj-KMY" id="7oe-vG-QRB"/>
                         <outlet property="reverbSwitch" destination="bhg-kc-n0D" id="iMP-wY-So5"/>
