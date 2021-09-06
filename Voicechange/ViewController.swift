@@ -52,8 +52,7 @@ final class ViewController: UIViewController {
     
     @IBOutlet weak var recordButton: UIButton! {
         didSet {
-            recordButton.layer.cornerRadius = playButton.layer.bounds.height / 2
-            recordButton.isEnabled = false
+            recordButton.layer.cornerRadius = recordButton.layer.bounds.height / 2
         }
     }
     
@@ -80,20 +79,20 @@ final class ViewController: UIViewController {
     
     @IBAction func record(_ sender: Any) {
         if !audio.audioRecorder.isRecording {
-                    audio.audioRecorder.record()
-                } else {
-                    audio.audioRecorder.stop()
-                    playButton.isEnabled = true
-                }
+            audio.audioRecorder.record()
+        } else {
+            audio.audioRecorder.stop()
+            playButton.isEnabled = true
+        }
     }
     
     
     @IBAction func play(_ sender: Any) {
         audio.playSound(speed: speedSlider.value,
-                                pitch: pitchSlider.value,
-                                echo: echoSwitch.isOn,
-                                reverb: reverbSwitch.isOn
-                )
+                        pitch: pitchSlider.value,
+                        echo: echoSwitch.isOn,
+                        reverb: reverbSwitch.isOn
+        )
     }
     
 
