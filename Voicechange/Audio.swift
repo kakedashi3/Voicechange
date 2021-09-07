@@ -10,6 +10,7 @@ import AVFoundation
 
 final class Audio {
     
+    // 録音と再生関連を宣言する
     var audioRecorder: AVAudioRecorder!
     var audioEngine: AVAudioEngine!
     var audioFile: AVAudioFile!
@@ -22,9 +23,10 @@ final class Audio {
         let session = AVAudioSession.sharedInstance()
         
         do {
-            try session.setCategory(.playAndRecord, mode: .default)
+            try session.setCategory(.playAndRecord, mode: .default, options: .defaultToSpeaker)
             try session.setActive(true)
             
+            // 音源の設定
             let settings = [
                 AVFormatIDKey: Int(kAudioFormatMPEG4AAC),
                 AVSampleRateKey: 44100,
@@ -32,8 +34,9 @@ final class Audio {
                 AVEncoderAudioQualityKey: AVAudioQuality.high.rawValue
             ]
             
-            audioRecorder = try AVAudioRecorder(url: getAudioFilrUrl(), settings: settings)
+            audioRecorder = try AVAudioRecorder(url: getAudioFileUrl(), settings: settings)
             audioRecorder.delegate = self as? AVAudioRecorderDelegate
+            
         } catch let error {
             print(error)
         }
@@ -42,7 +45,7 @@ final class Audio {
     func playSound(speed: Float, pitch: Float, echo: Bool, reverb: Bool) {
         audioEngine = AVAudioEngine()
         
-        let url = getAudioFilrUrl()
+        let url = getAudioFileUrl()
         
         do {
             audioFile = try AVAudioFile(forReading: url)
@@ -90,7 +93,8 @@ final class Audio {
         }
     }
     
-    private func getAudioFilrUrl() -> URL {
+    // URLを取得するメソッド
+    private func getAudioFileUrl() -> URL {
         let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         let docsDirect = paths[0]
         let audioUrl = docsDirect.appendingPathComponent("recording.m4a")

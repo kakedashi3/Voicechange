@@ -9,54 +9,57 @@ import UIKit
 import AVFoundation
 
 final class ViewController: UIViewController {
-        
+    
+    // Audioクラスのインスタンスを作成
     var audio = Audio()
     
     
+    // speedを変更するスライダー
     @IBOutlet weak var speedSlider: UISlider! {
         didSet {
             speedSlider.minimumValue = 0.5
             speedSlider.maximumValue = 1.5
             speedSlider.setValue(1, animated: true)
-            speedSlider.tintColor = .red
+            speedSlider.tintColor = .purple
         }
     }
     
+    // pitchを変更すrスライダー
     @IBOutlet weak var pitchSlider: UISlider! {
         didSet {
             pitchSlider.minimumValue = -1000
             pitchSlider.maximumValue = 1000
             pitchSlider.setValue(0, animated: true)
-            pitchSlider.tintColor = .red
+            pitchSlider.tintColor = .purple
         }
     }
     
-    
+    // echoスイッチ
     @IBOutlet weak var echoSwitch: UISwitch! {
         didSet {
             echoSwitch.isOn = false
-            echoSwitch.onTintColor = .red
-            echoSwitch.tintColor = .red
+            echoSwitch.onTintColor = .purple
+            echoSwitch.tintColor = .purple
         }
     }
     
-    
+    // reverbスイッチ
     @IBOutlet weak var reverbSwitch: UISwitch! {
         didSet {
             reverbSwitch.isOn = false
-            reverbSwitch.onTintColor = .red
-            reverbSwitch.tintColor = .red
+            reverbSwitch.onTintColor = .purple
+            reverbSwitch.tintColor = .purple
         }
     }
     
-    
+    // Recordボタン
     @IBOutlet weak var recordButton: UIButton! {
         didSet {
             recordButton.layer.cornerRadius = recordButton.layer.bounds.height / 2
         }
     }
     
-    
+    // playボタン
     @IBOutlet weak var playButton: UIButton! {
         didSet {
             playButton.layer.cornerRadius = playButton.layer.bounds.height / 2
@@ -70,7 +73,7 @@ final class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        // modelのメソッド
         audio.setUpAudioRecorder()
         
     }
