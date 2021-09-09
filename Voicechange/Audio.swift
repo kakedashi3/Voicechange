@@ -22,6 +22,7 @@ final class Audio {
     func setUpAudioRecorder() {
         let session = AVAudioSession.sharedInstance()
         
+        // 例外処理
         do {
             try session.setCategory(.playAndRecord, mode: .default, options: .defaultToSpeaker)
             try session.setActive(true)
@@ -47,6 +48,7 @@ final class Audio {
         
         let url = getAudioFileUrl()
         
+        // 例外処理
         do {
             audioFile = try AVAudioFile(forReading: url)
             
