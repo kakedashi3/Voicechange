@@ -24,7 +24,14 @@ final class Audio {
         
         // 例外処理
         do {
-            try session.setCategory(.playAndRecord, mode: .default, options: .defaultToSpeaker)
+            try session.setCategory(
+                .playAndRecord,
+                mode: .default,
+                // オプションの内容は[]で閉じると良い
+                options: [.defaultToSpeaker,      // 録音レベルを大きくする
+                          .allowAirPlay,          // AirPlayデバイスにストリーミングできる
+                          .allowBluetoothA2DP])   // Bluetoothイヤホンでも録音再生ができる
+            
             try session.setActive(true)
             
             // 音源の設定
@@ -52,23 +59,28 @@ final class Audio {
         do {
             audioFile = try AVAudioFile(forReading: url)
             
+            // ノードを生成エンジンにアタッチ
             audioPlayerNode = AVAudioPlayerNode()
             audioEngine.attach(audioPlayerNode)
             
+            // ノードを生成エンジンにアタッチ
             audioUnitTimePitch = AVAudioUnitTimePitch()
             audioUnitTimePitch.rate = speed
             audioUnitTimePitch.pitch = pitch
             audioEngine.attach(audioUnitTimePitch)
             
+            // ノードを生成エンジンにアタッチ
             let echoNode = AVAudioUnitDistortion()
             echoNode.loadFactoryPreset(.multiEcho1)
             audioEngine.attach(echoNode)
             
+            // ノードを生成エンジンにアタッチ
             let reverbNode = AVAudioUnitReverb()
             reverbNode.loadFactoryPreset(.cathedral)
             reverbNode.wetDryMix = 50
             audioEngine.attach(reverbNode)
             
+            // 条件分岐
             if echo && reverb {
                 connectAudioNodes(audioPlayerNode, audioUnitTimePitch, echoNode, reverbNode, audioEngine.outputNode)
             } else if echo {

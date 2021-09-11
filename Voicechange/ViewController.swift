@@ -18,17 +18,17 @@ final class ViewController: UIViewController {
     @IBOutlet weak var speedSlider: UISlider! {
         didSet {
             speedSlider.minimumValue = 0.5
-            speedSlider.maximumValue = 1.5
+            speedSlider.maximumValue = 2.5
             speedSlider.setValue(1, animated: true)
             speedSlider.tintColor = .purple
         }
     }
     
-    // pitchを変更すrスライダー
+    // pitchを変更するスライダー
     @IBOutlet weak var pitchSlider: UISlider! {
         didSet {
-            pitchSlider.minimumValue = -1000
-            pitchSlider.maximumValue = 1000
+            pitchSlider.minimumValue = -1500
+            pitchSlider.maximumValue = 1500
             pitchSlider.setValue(0, animated: true)
             pitchSlider.tintColor = .purple
         }
@@ -77,7 +77,7 @@ final class ViewController: UIViewController {
     }
 
     
-    
+    // Recordボタン
     @IBAction func record(_ sender: Any) {
         if !audio.audioRecorder.isRecording {
             audio.audioRecorder.record()
@@ -87,7 +87,7 @@ final class ViewController: UIViewController {
         }
     }
     
-    
+    // playボタン
     @IBAction func play(_ sender: Any) {
         audio.playSound(speed: speedSlider.value,
                         pitch: pitchSlider.value,
