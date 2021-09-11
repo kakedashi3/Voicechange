@@ -16,6 +16,7 @@
 		6F28A94F26DE7CB300F84855 /* VoicechangeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F28A94E26DE7CB300F84855 /* VoicechangeTests.swift */; };
 		6F28A95A26DE7CB300F84855 /* VoicechangeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F28A95926DE7CB300F84855 /* VoicechangeUITests.swift */; };
 		6F28A9A426E5121600F84855 /* Audio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F28A9A326E5121600F84855 /* Audio.swift */; };
+		6F28A9A626ECFC7800F84855 /* ghostVoiceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F28A9A526ECFC7700F84855 /* ghostVoiceController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		6F28A95926DE7CB300F84855 /* VoicechangeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoicechangeUITests.swift; sourceTree = "<group>"; };
 		6F28A95B26DE7CB300F84855 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6F28A9A326E5121600F84855 /* Audio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Audio.swift; sourceTree = "<group>"; };
+		6F28A9A526ECFC7700F84855 /* ghostVoiceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ghostVoiceController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 				6F28A93B26DE7CA500F84855 /* ViewController.swift */,
 				6F28A9A326E5121600F84855 /* Audio.swift */,
 				6F28A93D26DE7CA500F84855 /* Main.storyboard */,
+				6F28A9A526ECFC7700F84855 /* ghostVoiceController.swift */,
 				6F28A94026DE7CB300F84855 /* Assets.xcassets */,
 				6F28A94226DE7CB300F84855 /* LaunchScreen.storyboard */,
 				6F28A94526DE7CB300F84855 /* Info.plist */,
@@ -262,6 +265,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6F28A9A426E5121600F84855 /* Audio.swift in Sources */,
+				6F28A9A626ECFC7800F84855 /* ghostVoiceController.swift in Sources */,
 				6F28A93C26DE7CA500F84855 /* ViewController.swift in Sources */,
 				6F28A93826DE7CA500F84855 /* AppDelegate.swift in Sources */,
 				6F28A93A26DE7CA500F84855 /* SceneDelegate.swift in Sources */,
