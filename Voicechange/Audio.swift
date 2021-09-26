@@ -59,11 +59,11 @@ final class Audio {
         do {
             audioFile = try AVAudioFile(forReading: url)
             
-            // ノードを生成エンジンにアタッチ
+            // 再生ノードをエンジンに接続
             audioPlayerNode = AVAudioPlayerNode()
             audioEngine.attach(audioPlayerNode)
             
-            // ノードを生成エンジンにアタッチ
+            // エフェクトを設定してエンジンに接続
             audioUnitTimePitch = AVAudioUnitTimePitch()
             audioUnitTimePitch.rate = speed
             audioUnitTimePitch.pitch = pitch
@@ -71,7 +71,7 @@ final class Audio {
             
             // ノードを生成エンジンにアタッチ
             let echoNode = AVAudioUnitDistortion()
-            echoNode.loadFactoryPreset(.multiEcho1)
+            echoNode.loadFactoryPreset(.speechAlienChatter)
             audioEngine.attach(echoNode)
             
             // ノードを生成エンジンにアタッチ
