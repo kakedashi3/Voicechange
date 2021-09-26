@@ -8,14 +8,4 @@
 import XCTest
 @testable import Voicechange
 
-class VoicechangeTests: XCTestCase {
 
-    func test() {
-        var audio: Audio
-        
-        audio = Audio()
-        XCTAssertEqual(setUpAudioRecoder .session)
-    }
-    
-
-}
